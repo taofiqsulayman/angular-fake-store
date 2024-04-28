@@ -19,7 +19,7 @@ const routes: Routes = [
     component: ProductDetailsComponent
   },
   {
-    path: 'category',
+    path: 'category/:category',
     component: ProductCategoryComponent
   }
 ];

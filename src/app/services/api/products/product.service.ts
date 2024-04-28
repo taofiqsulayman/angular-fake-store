@@ -25,4 +25,8 @@ export class ProductService {
     return this.http.get<ProductRepresentation>(`${this.baseUrl}products/${id}`)
   }
 
+  getProductsByCategory(category: string) {
+    return this.http.get<ProductRepresentation[]>(`${this.baseUrl}products/category/${category}`)
+  }
+
 }
