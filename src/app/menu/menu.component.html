@@ -2,4 +2,7 @@
     <ul>
         <li><a href="#">Home</a></li>
     </ul>
+    <ul>
+        <li *ngFor="let category of categories" (click)="onMenuClick(category)">{{category}}</li>
+    </ul>
 </div>
