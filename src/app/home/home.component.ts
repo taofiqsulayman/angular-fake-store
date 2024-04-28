@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   products: ProductRepresentation[] = [];
+  loading = true;
 
   ngOnInit() {
 
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
 
     response.subscribe((data) => {
       this.products = data;
+      this.loading = false;
     });
   }
 
