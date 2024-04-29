@@ -1,12 +1,13 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ProductService } from '../services/api/products/product.service';
 import { ProductRepresentation } from '../services/api/models/product-representation';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
@@ -18,26 +19,26 @@ export class HomeComponent implements OnInit {
 
   products: ProductRepresentation[] = [];
   loading = true;
-  category: string = this.route.snapshot.params['category'];
+  category: string = '';
 
   ngOnInit() {
-
-    let response;
-
-    if (this.category) {
-      response = this.productService.getProductsByCategory(this.category);
-    } else {
-      response = this.productService.getAllProducts();
-    }
-
-    response.subscribe((data) => {
+    this.route.params.pipe(
+      switchMap((params: Params) => {
+        this.category = params['category'];
+        if (this.category) {
+          return this.productService.getProductsByCategory(this.category);
+        } else {
+          return this.productService.getAllProducts();
+        }
+      })
+    ).subscribe((data) => {
       this.products = data;
       this.loading = false;
     });
   }
 
   onProductClick(productId: number) {
-      this.router.navigate(['/products', productId]);
+    this.router.navigate(['/products', productId]);
   }
 
 }
