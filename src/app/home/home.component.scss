@@ -43,7 +43,7 @@ header h3 {
 
 .product-img {
     float: left;
-    height: 410px;
+    height: 420px;
     width: 327px;
 }
 
@@ -81,7 +81,9 @@ header h3 {
 }
 
 .product-text p {
-    height: 125px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     margin: 0 0 0 38px;
     font-family: "Playfair Display", serif;
     color: #8d8d8d;
@@ -89,20 +91,18 @@ header h3 {
     font-size: 15px;
     font-weight: lighter;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-price {
-    height: auto;
-    max-width: 327px;
-    margin-top: 15px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
 }
 
 .product-price p {
     display: inline-block;
-    position: absolute;
-    top: -13px;
-    height: 50px;
     font-family: "Trocchi", serif;
     margin: 0 0 0 38px;
     font-size: 28px;
@@ -112,7 +112,6 @@ header h3 {
 
 .product-price span {
     display: inline-block;
-    height: 50px;
     font-family: "Suranna", serif;
     font-size: 34px;
 }
@@ -128,12 +127,12 @@ header h3 {
     font-family: "Raleway", sans-serif;
     font-size: 14px;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.2em;
     color: #ffffff;
     background-color: #9cebd5;
     cursor: pointer;
     outline: none;
+    padding: 10px 20px;
 }
 
 .product-price button:hover {
@@ -159,10 +158,13 @@ header h3 {
 }
 
 @media (max-width: 768px) {
+    .product-list {
+        padding: 5px 35px;
+    }
     .card-wrapper {
         height: auto;
         margin: 20px 5px;
-        padding: 5px 35px;
+        width: 100%;
     }
     .product-img {
         height: 180px;
@@ -172,6 +174,7 @@ header h3 {
     .product-info {
         height: auto;
         width: 100%;
+        padding: 0;
     }
 
     .product-text {
@@ -190,15 +193,9 @@ header h3 {
         display: none;
     }
 
-    .product-price {
-        height: 50px;
-        width: 100%;
-        margin-top: 10px;
-    }
-
     .product-price p {
-        margin: 0 0 0 10px;
         font-size: 20px;
+        margin: 0 0 0 10px;
     }
 
     .product-text .product-rating {
@@ -208,10 +205,10 @@ header h3 {
     }
 
     .product-price button {
-        height: 30px;
+        height: auto;
         max-width: 100px;
-        margin: 0 10px 0 10px;
         font-size: 10px;
+        margin: 0 10px 0 10px;
     }
 
     .product-price span {
