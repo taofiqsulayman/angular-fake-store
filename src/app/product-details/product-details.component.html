@@ -1,13 +1,19 @@
-<div class="product-card">
-    <img class="product-image" [src]="product.image" [attr.alt]="product.title">
-    <div class="product-details">
-        <h3 class="product-title"> {{product.title}} </h3>
-        <p class="product-price">$ {{product.price}} </p>
-        <p class="product-description"> {{product.description}} </p>
-        <p class="product-category"> {{product.category}} </p>
-        <div class="product-rating">
-            <span class="rating-value"> {{product.rating?.rate}} </span>
-            <span class="rating-count"> {{ product.rating?.count }} reviews</span>
+<main>
+    <h1 class="item-title">{{ product.title }}</h1>
+
+    <section class="item-details">
+        <div class="item-image">
+            <img [src]="product.image" alt="{{ product.title }}">
         </div>
-    </div>
-</div>
+
+        <div class="item-info">
+            <p>{{ product.description }}</p>
+            <p class="item-category">{{product.category}}</p>
+            <div class="item-rating">
+                <span class="rate-value">{{ product.rating?.rate }}</span>
+                <span class="rate-count">{{ product.rating?.count }} reviews</span>
+            </div>
+            <p class="item-price">{{ product.price }} $</p>
+        </div>
+    </section>
+</main>
