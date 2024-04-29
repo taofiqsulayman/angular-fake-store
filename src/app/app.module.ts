@@ -7,7 +7,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { ProductCategoryComponent } from './product-category/product-category.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { ProductCategoryComponent } from './product-category/product-category.co
     MenuComponent,
     HomeComponent,
     ProductDetailsComponent,
-    ProductCategoryComponent,
   ],
   imports: [
     BrowserModule,

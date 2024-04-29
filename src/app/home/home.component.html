@@ -2,8 +2,9 @@
     <h3>Welcome to FakeStore: Powered by Fake Store API</h3>
     <p>Here you can find the list of products available in the store.</p>
 </header>
+<h2 *ngIf="category" class="category">{{category}}</h2>
 <main *ngIf="products" class="product-list">
-    <div class="product-card" *ngFor="let product of products" (click)="product.id && onProductClick(product.id)">
+    <!-- <div class="product-card" *ngFor="let product of products" (click)="product.id && onProductClick(product.id)">
         <img class="product-image" [src]="product.image" alt="{{ product.title }}">
         <div class="product-details">
             <h4>{{ product.title }}</h4>
@@ -11,6 +12,26 @@
             <div class="product-rating">
                 <span class="rating-value"> {{product.rating?.rate}} </span>
                 <span class="rating-count"> {{ product.rating?.count }} reviews</span>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="card-wrapper" *ngFor="let product of products">
+        <div class="product-img">
+            <img [src]="product.image" alt="{{product.title}}">
+        </div>
+        <div class="product-info">
+            <div class="product-text">
+                <h1>{{product.title}}</h1>
+                <p>{{product.description}}</p>
+                <div class="product-rating">
+                    <span class="rating-value"> {{product.rating?.rate}} </span>
+                    <span class="rating-count"> {{ product.rating?.count }} reviews</span>
+                </div>
+            </div>
+            <div class="product-price">
+                <p><span>{{product.price}} </span>$</p>
+                <button type="button" (click)="product.id && onProductClick(product.id)">more...</button>
             </div>
         </div>
     </div>

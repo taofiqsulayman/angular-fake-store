@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   }
 
   onMenuClick(category: string) {
-    this.router.navigate(['/category', category])
+    this.router.navigate(['/products/category', category])
   }
 
 }
